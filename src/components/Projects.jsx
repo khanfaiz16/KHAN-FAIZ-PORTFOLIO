@@ -1,29 +1,46 @@
 import React from 'react';
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
 const Projects = () => {
   const projects = [
     {
+      title: 'Top Cool Service – Doorstep Appliance Repair Platform',
+      description:
+        'A high-performance commercial web application engineered for doorstep home appliance servicing across 15+ Mumbai & Thane suburban clusters.',
+      points: [
+        'Implemented interactive multi-step booking workflows, dynamic FAQ accordions, and automated dispatch via direct WhatsApp & phone APIs.',
+        'Optimized technical SEO using JSON-LD LocalBusiness schema, XML sitemaps, canonical routing, and Google Search Console integration.',
+        'Deployed on Vercel with an automated CI/CD pipeline, achieving 100% uptime rate and sub-second edge load latency.'
+      ],
+      stack: ['React.js', 'Node.js', 'Vercel', 'SEO / JSON-LD', 'CI/CD'],
+      isLive: true,
+      link: 'https://topcoolservice.com' // Replace with your exact deployed URL if different
+    },
+    {
       title: 'Hospital Management System',
       description:
-        'An end-to-end clinical automation platform engineered to streamline appointments, staff availability, and diagnostic patient profiling.',
+        'An end-to-end clinical management portal designed to streamline doctor allocations, patient profiling, and digital appointment bookings.',
       points: [
-        'Built full request-response lifecycle with Java Servlets, JSP, and MySQL database[cite: 1].',
-        'Implemented patient records, doctor allocations, and schedule trackers using direct JDBC connections[cite: 1].',
-        'Followed Model-View-Controller (MVC) architectural patterns and hosted on Apache Tomcat[cite: 1].'
+        'Built full request-response application flow using Java Servlets, JSP, and MySQL database.',
+        'Implemented patient records, doctor allocations, and schedule trackers using direct JDBC operations.',
+        'Engineered standard Model-View-Controller (MVC) architecture and deployed on Apache Tomcat.'
       ],
-      stack: ['Java Servlets', 'JSP', 'MySQL', 'JDBC', 'Apache Tomcat', 'MVC Architecture']
+      stack: ['Java Servlets', 'JSP', 'MySQL', 'JDBC', 'Tomcat', 'MVC Architecture'],
+      isLive: false,
+      link: 'https://github.com/khanfaiz' // Replace with your repository link
     },
     {
       title: 'E-Commerce Application',
       description:
-        'A microservices-ready commercial backend powering reliable product discovery, customer account persistence, and transactional authorization.',
+        'A secure, decoupled e-commerce service handling consumer authentication, verified registration pipelines, and order flows.',
       points: [
-        'Engineered secure, stateless RESTful APIs for customer authentication and signup pipelines[cite: 1].',
-        'Integrated robust OTP (One-Time-Password) verification service to prevent unauthorized registrations[cite: 1].',
-        'Normalized relational schemas ensuring ACID guarantees and transactional efficiency.'
+        'Engineered stateless, secure RESTful APIs for user registration and authentication.',
+        'Integrated OTP-based verification protocols to reinforce account security.',
+        'Designed normalized relational schema architectures ensuring transaction integrity.'
       ],
-      stack: ['Java', 'Spring Boot', 'REST APIs', 'OTP Verification', 'Hibernate', 'MySQL']
+      stack: ['Java', 'Spring Boot', 'REST APIs', 'OTP Verification', 'Hibernate', 'MySQL'],
+      isLive: false,
+      link: 'https://github.com/khanfaiz' // Replace with your repository link
     }
   ];
 
@@ -32,13 +49,13 @@ const Projects = () => {
       <div className="container">
         <div className="section-header">
           <span className="section-badge">Portfolio</span>
-          <h2 className="section-title gradient-title">Featured Projects</h2>
+          <h2 className="section-title">Featured Projects</h2>
         </div>
 
         <div className="projects-grid">
           {projects.map((proj, idx) => (
             <div key={idx} className="project-card">
-              <div>
+              <div className="project-body">
                 <h3>{proj.title}</h3>
                 <p className="desc">{proj.description}</p>
                 <ul className="bullet-points">
@@ -50,10 +67,35 @@ const Projects = () => {
                   ))}
                 </ul>
               </div>
-              <div className="skill-chips">
-                {proj.stack.map((item, tIdx) => (
-                  <span key={tIdx} className="chip">{item}</span>
-                ))}
+
+              <div className="project-footer">
+                <div className="skill-chips">
+                  {proj.stack.map((item, tIdx) => (
+                    <span key={tIdx} className="chip">{item}</span>
+                  ))}
+                </div>
+
+                <div className="project-action-wrapper">
+                  {proj.isLive ? (
+                    <a
+                      href={proj.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-project-link live-btn"
+                    >
+                      <span>Live Website</span> <FaExternalLinkAlt />
+                    </a>
+                  ) : (
+                    <a
+                      href={proj.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-project-link repo-btn"
+                    >
+                      <span>View Code</span> <FaGithub />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
