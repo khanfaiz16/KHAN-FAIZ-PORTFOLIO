@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+
+:root {
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f1f5f9;
+  
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --border-focus: #2563eb;
+
+  --accent-primary: #2563eb;
+  --accent-secondary: #4f46e5;
+  --accent-soft: rgba(37, 99, 235, 0.08);
+
+  /* High contrast colors */
+  --text-main: #0f172a;
+  --text-body: #1e293b;
+  --text-muted: #475569;
+
+  --whatsapp-color: #25d366;
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Animated Gradient Blobs */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.55;
+  pointer-events: none;
+  animation: driftAmbient 14s infinite alternate ease-in-out;
+}
+
+body::before {
+  width: 480px;
+  height: 480px;
+  background: #dbeafe;
+  top: -80px;
+  left: -80px;
+}
+
+body::after {
+  width: 520px;
+  height: 520px;
+  background: #ede9fe;
+  bottom: -60px;
+  right: -60px;
+}
+
+@keyframes driftAmbient {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(35px, 45px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatHero {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes softGlow {
+  0%, 100% {
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+  }
+  50% {
+    box-shadow: 0 16px 40px rgba(37, 99, 235, 0.2);
+  }
+}
+
+@keyframes pulseRipple {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
