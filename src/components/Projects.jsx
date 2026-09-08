@@ -26,22 +26,21 @@ const Projects = () => {
         'Engineered operational workflows for lab diagnostics, pharmacy inventory tracking, blood bank reserves, and emergency ambulance dispatch.',
         'Integrated an automated billing engine, dynamic iText PDF discharge summary generator, and session-based role-based access control (RBAC).'
       ],
-      stack: ['Java Servlets', 'Jakarta EE', 'JSP','JDBC','MySQL','Apache Tomcat 10'],
+      stack: ['Java Servlets', 'Jakarta EE', 'JSP', 'JDBC', 'MySQL', 'Apache Tomcat 10'],
       isLive: false,
       link: 'https://github.com/khanfaiz16/HospitalManagementSystem'
     },
     {
-      title: 'E-Commerce Application',
+      title: 'AuraStore – Full-Stack E-Commerce Web Application',
       description:
-        'A secure, decoupled e-commerce service handling consumer authentication, verified registration pipelines, and order flows.',
+        'Built a full-stack e-commerce application using React with modular custom CSS on the frontend and Java Spring Boot RESTful APIs with MySQL on the backend.',
       points: [
-        'Engineered stateless, secure RESTful APIs for user registration and authentication[cite: 1].',
-        'Integrated OTP-based verification protocols to reinforce account security[cite: 1].',
-        'Designed normalized relational schema architectures ensuring transaction integrity.'
+        'Implemented passwordless email OTP authentication and secure session management using Spring Security and JWT, along with role-based access for users and admins.',
+        'Created end-to-end shopping features including product catalog filtering, cart management, checkout with email confirmations, promo coupons, and an admin management dashboard.'
       ],
-      stack: ['Java', 'Spring Boot', 'REST APIs', 'OTP Verification', 'Hibernate', 'MySQL'],
+      stack: ['React.js', 'Java', 'Spring Boot', 'Spring Security', 'JWT', 'MySQL', 'REST APIs', 'Email OTP'],
       isLive: false,
-      link: 'https://github.com/khanfaiz'
+      link: 'https://github.com/khanfaiz16/E-COMMERCE-FULL-STACK' 
     }
   ];
 
@@ -110,4 +109,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;  
+export default Projects;
