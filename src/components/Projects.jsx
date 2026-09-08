@@ -14,28 +14,28 @@ const Projects = () => {
       ],
       stack: ['React.js', 'Node.js', 'Vercel', 'SEO / JSON-LD', 'CI/CD'],
       isLive: true,
-      link: 'https://topcoolservice.com' // Replace with your exact deployed URL if different
+      link: 'https://topcoolservice.com'
     },
     {
-      title: 'Hospital Management System',
+      title: 'Hospital Management System (Enterprise ERP)',
       description:
-        'An end-to-end clinical management portal designed to streamline doctor allocations, patient profiling, and digital appointment bookings.',
+        'Developed a full-stack hospital ERP using Java Servlets (Jakarta EE), JSP, JDBC, and MySQL on Apache Tomcat 10 following MVC architecture.',
       points: [
-        'Built full request-response application flow using Java Servlets, JSP, and MySQL database.',
-        'Implemented patient records, doctor allocations, and schedule trackers using direct JDBC operations.',
-        'Engineered standard Model-View-Controller (MVC) architecture and deployed on Apache Tomcat.'
+        'Built end-to-end modules for patient registration, doctor appointments, ward bed allocations, electronic prescriptions (EHR), and OT surgery scheduling.',
+        'Engineered operational workflows for lab diagnostics, pharmacy inventory tracking, blood bank reserves, and emergency ambulance dispatch.',
+        'Integrated an automated billing engine, dynamic iText PDF discharge summary generator, and session-based role-based access control (RBAC).'
       ],
-      stack: ['Java Servlets', 'JSP', 'MySQL', 'JDBC', 'Tomcat', 'MVC Architecture'],
+      stack: ['Java Servlets', 'Jakarta EE', 'JSP', 'JDBC', 'MySQL', 'Apache Tomcat 10'],
       isLive: false,
-      link: 'https://github.com/khanfaiz' // Replace with your repository link
+      link: 'https://github.com/khanfaiz16/HospitalManagementSystem' // Replace with your repository link
     },
     {
       title: 'E-Commerce Application',
       description:
         'A secure, decoupled e-commerce service handling consumer authentication, verified registration pipelines, and order flows.',
       points: [
-        'Engineered stateless, secure RESTful APIs for user registration and authentication.',
-        'Integrated OTP-based verification protocols to reinforce account security.',
+        'Engineered stateless, secure RESTful APIs for user registration and authentication[cite: 1].',
+        'Integrated OTP-based verification protocols to reinforce account security[cite: 1].',
         'Designed normalized relational schema architectures ensuring transaction integrity.'
       ],
       stack: ['Java', 'Spring Boot', 'REST APIs', 'OTP Verification', 'Hibernate', 'MySQL'],
