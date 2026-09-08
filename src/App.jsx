@@ -8,11 +8,13 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import BackgroundAnimation from './components/BackgroundAnimation';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <BackgroundAnimation />
       <Navbar />
       <Hero />
       <About />

@@ -422,19 +422,19 @@
   border-color: var(--accent-primary);
 }
 
-/* Projects */
+/* Projects (Compact & Clean) */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
 }
 
 .project-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 18px;
-  padding: 2.2rem;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+  border-radius: 16px;
+  padding: 1.5rem; /* Reduced from 2.2rem */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -442,24 +442,81 @@
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   border-color: var(--accent-primary);
-  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.08);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.08);
 }
 
 .project-card h3 {
-  font-size: 1.35rem;
+  font-size: 1.2rem; /* Reduced slightly */
   font-weight: 700;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   color: var(--text-main);
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
 .project-card p.desc {
   color: var(--text-muted);
-  font-size: 0.94rem;
-  line-height: 1.7;
-  margin-bottom: 1.3rem;
+  font-size: 0.88rem; /* Compact font */
+  line-height: 1.55;
+  margin-bottom: 0.9rem;
+}
+
+.bullet-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem; /* Tighter spacing */
+  margin-bottom: 1.1rem;
+}
+
+.bullet-points li {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.84rem; /* Compact text */
+  color: var(--text-body);
+  line-height: 1.45;
+}
+
+.bullet-points li svg {
+  color: var(--accent-primary);
+  margin-top: 3px;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.project-footer {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.chip {
+  background: var(--bg-page);
+  border: 1px solid var(--card-border);
+  padding: 0.28rem 0.65rem; /* Compact chip padding */
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-body);
+  transition: var(--transition);
+}
+
+.btn-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem; /* Compact button */
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: var(--transition);
 }
 
 .bullet-points {
@@ -877,12 +934,64 @@
     padding: 1rem;
   }
 
+  /* Projects - Mobile Compact Layout */
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 1.1rem; /* Reduced distance between stacked cards */
   }
 
   .project-card {
-    padding: 1.5rem;
+    padding: 1.15rem; /* Reduced internal padding from 1.5rem */
+    border-radius: 14px;
+  }
+
+  .project-card h3 {
+    font-size: 1.08rem; /* Scaled down header for mobile titles */
+    line-height: 1.35;
+    margin-bottom: 0.4rem;
+  }
+
+  .project-card p.desc {
+    font-size: 0.82rem; /* Tightened body font */
+    line-height: 1.48;
+    margin-bottom: 0.7rem;
+  }
+
+  .bullet-points {
+    gap: 0.35rem; /* Shorter spacing between bullets */
+    margin-bottom: 0.9rem;
+  }
+
+  .bullet-points li {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    gap: 0.45rem;
+  }
+
+  .bullet-points li svg {
+    margin-top: 2px;
+    font-size: 0.78rem;
+  }
+
+  .project-footer {
+    margin-top: 0.35rem;
+    gap: 0.75rem;
+  }
+
+  .skill-chips {
+    gap: 0.35rem;
+  }
+
+  .chip {
+    padding: 0.22rem 0.55rem;
+    font-size: 0.74rem;
+  }
+
+  .btn-project-link {
+    width: 100%; /* Full-width, easy-to-tap button on mobile */
+    justify-content: center;
+    padding: 0.48rem 0.9rem;
+    font-size: 0.8rem;
   }
 
   .timeline-container {
@@ -904,4 +1013,27 @@
     height: 50px;
     font-size: 24px;
   }
+}
+/* Animation & Spotlight Helper Styles */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Ensure inner content sits cleanly above the mouse-glow layer */
+.project-body,
+.project-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fixes Framer Motion flex-stretching inside the grid */
+.projects-grid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-grid .project-card {
+  flex: 1;
 }

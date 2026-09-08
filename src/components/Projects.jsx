@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCheckCircle, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { FadeInWhenVisible, TiltCard } from './MotionWrapper';
 
 const Projects = () => {
   const projects = [
@@ -25,9 +26,9 @@ const Projects = () => {
         'Engineered operational workflows for lab diagnostics, pharmacy inventory tracking, blood bank reserves, and emergency ambulance dispatch.',
         'Integrated an automated billing engine, dynamic iText PDF discharge summary generator, and session-based role-based access control (RBAC).'
       ],
-      stack: ['Java Servlets', 'Jakarta EE', 'JSP', 'JDBC', 'MySQL', 'Apache Tomcat 10'],
+      stack: ['Java Servlets', 'Jakarta EE', 'JSP','JDBC','MySQL','Apache Tomcat 10'],
       isLive: false,
-      link: 'https://github.com/khanfaiz16/HospitalManagementSystem' // Replace with your repository link
+      link: 'https://github.com/khanfaiz16/HospitalManagementSystem'
     },
     {
       title: 'E-Commerce Application',
@@ -40,64 +41,68 @@ const Projects = () => {
       ],
       stack: ['Java', 'Spring Boot', 'REST APIs', 'OTP Verification', 'Hibernate', 'MySQL'],
       isLive: false,
-      link: 'https://github.com/khanfaiz' // Replace with your repository link
+      link: 'https://github.com/khanfaiz'
     }
   ];
 
   return (
     <section id="projects" className="section">
       <div className="container">
-        <div className="section-header">
-          <span className="section-badge">Portfolio</span>
-          <h2 className="section-title">Featured Projects</h2>
-        </div>
+        <FadeInWhenVisible>
+          <div className="section-header">
+            <span className="section-badge">Portfolio</span>
+            <h2 className="section-title">Featured Projects</h2>
+          </div>
+        </FadeInWhenVisible>
 
         <div className="projects-grid">
           {projects.map((proj, idx) => (
-            <div key={idx} className="project-card">
-              <div className="project-body">
-                <h3>{proj.title}</h3>
-                <p className="desc">{proj.description}</p>
-                <ul className="bullet-points">
-                  {proj.points.map((pt, pIdx) => (
-                    <li key={pIdx}>
-                      <FaCheckCircle />
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="project-footer">
-                <div className="skill-chips">
-                  {proj.stack.map((item, tIdx) => (
-                    <span key={tIdx} className="chip">{item}</span>
-                  ))}
+            <FadeInWhenVisible key={idx} delay={idx * 0.12}>
+              <TiltCard className="project-card">
+                <div className="project-body">
+                  <h3>{proj.title}</h3>
+                  <p className="desc">{proj.description}</p>
+                  <ul className="bullet-points">
+                    {proj.points.map((pt, pIdx) => (
+                      <li key={pIdx}>
+                        <FaCheckCircle />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className="project-action-wrapper">
-                  {proj.isLive ? (
-                    <a
-                      href={proj.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn-project-link live-btn"
-                    >
-                      <span>Live Website</span> <FaExternalLinkAlt />
-                    </a>
-                  ) : (
-                    <a
-                      href={proj.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn-project-link repo-btn"
-                    >
-                      <span>View Code</span> <FaGithub />
-                    </a>
-                  )}
+                <div className="project-footer">
+                  <div className="skill-chips">
+                    {proj.stack.map((item, tIdx) => (
+                      <span key={tIdx} className="chip">{item}</span>
+                    ))}
+                  </div>
+
+                  <div className="project-action-wrapper">
+                    {proj.isLive ? (
+                      <a
+                        href={proj.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-project-link live-btn"
+                      >
+                        <span>Live Website</span> <FaExternalLinkAlt />
+                      </a>
+                    ) : (
+                      <a
+                        href={proj.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-project-link repo-btn"
+                      >
+                        <span>View Code</span> <FaGithub />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </div>
+              </TiltCard>
+            </FadeInWhenVisible>
           ))}
         </div>
       </div>
@@ -105,4 +110,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Projects;  
