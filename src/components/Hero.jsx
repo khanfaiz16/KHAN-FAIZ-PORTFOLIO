@@ -41,9 +41,9 @@ const Hero = () => {
         <div className="hero-grid">
           <motion.div 
             className="hero-content"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
             <div className="hero-status-pill">
               <span className="status-ping"></span> Available for Opportunities
@@ -52,8 +52,7 @@ const Hero = () => {
               Hi, I'm <span className="gradient-accent">Khan Mohd. Faiz</span>
             </h1>
             
-            {/* Animated Typing Header */}
-            <h2 className="hero-role" style={{ minHeight: '2.4rem' }}>
+            <h2 className="hero-role">
               <span>{currentText}</span>
               <span className="typewriter-cursor">|</span>
             </h2>
@@ -69,7 +68,7 @@ const Hero = () => {
                 Hire Me <FaPaperPlane />
               </a>
               <a 
-                href="https://www.linkedin.com/in/mohd-faiz-khan-085555319/" 
+                href="https://www.linkedin.com" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="btn-glass"
@@ -89,12 +88,17 @@ const Hero = () => {
 
           <motion.div 
             className="hero-image-container"
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
           >
             <div className="glowing-frame">
-              <img src="./profile.JPG" alt="Khan Mohd. Faiz" className="profile-photo" />
+              <img 
+                src="./profile.JPG" 
+                alt="Khan Mohd. Faiz" 
+                className="profile-photo"
+                loading="eager"
+              />
             </div>
           </motion.div>
         </div>
