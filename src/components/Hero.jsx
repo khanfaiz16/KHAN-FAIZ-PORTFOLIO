@@ -68,7 +68,7 @@ const Hero = () => {
                 Hire Me <FaPaperPlane />
               </a>
               <a 
-                href="https://www.linkedin.com" 
+                href="https://www.linkedin.com/in/mohd-faiz-khan-085555319/" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="btn-glass"
@@ -76,7 +76,7 @@ const Hero = () => {
                 LinkedIn <FaLinkedin />
               </a>
               <a 
-                href="https://github.com/khanfaiz" 
+                href="https://github.com/khanfaiz16" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="btn-glass"
