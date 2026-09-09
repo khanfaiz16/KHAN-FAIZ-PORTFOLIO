@@ -1,4 +1,6 @@
 import React from 'react';
+import './index.css';
+import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -7,23 +9,22 @@ import Projects from './components/Projects';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import FloatingWhatsApp from './components/FloatingWhatsApp';
 import BackgroundAnimation from './components/BackgroundAnimation';
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="portfolio-app">
       <BackgroundAnimation />
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Education />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Education />
+        <Contact />
+      </main>
       <Footer />
-      <FloatingWhatsApp />
     </div>
   );
 }

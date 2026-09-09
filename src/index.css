@@ -6,24 +6,23 @@
   --font-heading: 'Cinzel', serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Vintage Blueprint & Aged Parchment Color System */
+  /* Antique Drafting & Aged Parchment Palette */
   --bg-page: #f9f6f0;           /* Warm antique parchment */
   --bg-surface: #fffdfa;        /* Clean drafting paper */
-  --bg-subtle: #f0eae1;         /* Weathered card backings */
+  --bg-subtle: #efe7da;         /* Weathered card backings */
   
   --card-bg: #fffdfa;
-  --card-border: #dcd3c4;       /* Aged brass/rule lines */
-  --border-focus: #c26d38;
+  --card-border: #d6cbba;       /* Aged brass/pencil guide rules */
+  --border-focus: #b45309;
 
   --accent-primary: #b45309;     /* Aged warm copper / burnished amber */
   --accent-secondary: #0f2338;   /* Archival blueprint navy */
-  --accent-soft: rgba(180, 83, 9, 0.09);
+  --accent-soft: rgba(180, 83, 9, 0.08);
 
   --text-main: #1c1917;         /* Ink-well charcoal */
-  --text-body: #322d28;         /* Sepia-tinted dark body */
+  --text-body: #332d26;         /* Sepia-tinted dark body */
   --text-muted: #786f66;        /* Faded graphite gray */
 
-  --whatsapp-color: #166534;
   --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -42,7 +41,7 @@ body {
   background-color: var(--bg-page);
   color: var(--text-body);
   font-size: 1.05rem;
-  line-height: 1.68;
+  line-height: 1.7;
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
@@ -79,7 +78,7 @@ ul {
   list-style: none;
 }
 
-/* Animations */
+/* Keyframe Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -105,17 +104,13 @@ ul {
   }
 }
 
-@keyframes pulseRipple {
-  0% { transform: scale(1); opacity: 0.8; }
-  100% { transform: scale(1.5); opacity: 0; }
-}
-
+/* Blinking typewriter cursor */
 .typewriter-cursor {
   display: inline-block;
   color: var(--accent-primary);
-  font-weight: 300;
+  font-weight: 400;
   font-family: var(--font-sans);
-  margin-left: 3px;
+  margin-left: 2px;
   animation: blinkCursor 0.9s infinite;
 }
 
@@ -124,9 +119,32 @@ ul {
   50% { opacity: 0; }
 }
 
-/* =========================================================
-   Vintage Architectural Grid (24px Precision)
-   ========================================================= */
+/* Spotlight hover glow for cards */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  top: var(--mouse-y, -100px);
+  left: var(--mouse-x, -100px);
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(180, 83, 9, 0.12) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Blueprint Grid Background */
 .blueprint-grid-wrapper {
   position: fixed;
   top: 0;
@@ -139,7 +157,6 @@ ul {
   background-color: var(--bg-page);
 }
 
-/* Fine vintage drafting line grid */
 .blueprint-grid-pattern {
   position: absolute;
   top: 0;

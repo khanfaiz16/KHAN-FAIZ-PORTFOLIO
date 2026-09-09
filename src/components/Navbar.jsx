@@ -6,7 +6,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  // Your exact original fields
   const navLinks = [
     { label: 'Home', id: 'home' },
     { label: 'About', id: 'about' },
@@ -39,13 +38,13 @@ const Navbar = () => {
   return (
     <header className="navbar-wrapper">
       <div className="container nav-container">
-        {/* Left: Brand Badge & Title */}
+        {/* Left: Avatar Badge & Brand */}
         <a href="#home" className="nav-brand-group">
           <span className="brand-avatar">KF</span>
           <span className="brand-name">KHAN FAIZ</span>
         </a>
 
-        {/* Center: Floating Rounded Capsule with your original fields */}
+        {/* Center: Capsule Navbar */}
         <nav className="center-pill-wrapper">
           <ul className={`center-pill-menu ${isOpen ? 'active' : ''}`}>
             {navLinks.map((item) => {
@@ -65,7 +64,7 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        {/* Right: Rounded CTA Button */}
+        {/* Right: CTA Pill */}
         <div className="nav-action-group">
           <a href="#contact" className="nav-cta-pill">
             <span>Let's Talk</span>

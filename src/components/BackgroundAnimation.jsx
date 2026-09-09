@@ -12,7 +12,6 @@ const BackgroundAnimation = () => {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Smaller vintage drafting grid cell size
     const gridSize = 24;
 
     const mouse = {
@@ -21,7 +20,6 @@ const BackgroundAnimation = () => {
       radius: 130,
     };
 
-    // Active animated boxes triggered by cursor
     const activeBoxes = new Map();
 
     const handleMouseMove = (e) => {
@@ -36,16 +34,16 @@ const BackgroundAnimation = () => {
         activeBoxes.set(key, {
           x: cellX,
           y: cellY,
-          scale: 0.2,
+          scale: 0.25,
           targetScale: 1.0,
-          alpha: 0.85,
-          borderAlpha: 1.0,
-          colorHue: 28 + Math.random() * 10, // Warm amber-copper tones
+          alpha: 0.8,
+          borderAlpha: 0.95,
+          colorHue: 28 + Math.random() * 8, // Warm vintage amber
         });
       } else {
         const item = activeBoxes.get(key);
-        item.alpha = 0.85;
-        item.borderAlpha = 1.0;
+        item.alpha = 0.8;
+        item.borderAlpha = 0.95;
       }
     };
 
@@ -63,7 +61,6 @@ const BackgroundAnimation = () => {
     window.addEventListener('mouseleave', handleMouseLeave);
     window.addEventListener('resize', handleResize);
 
-    // Occasional gentle ambient drafting blips
     const ambientBlips = [];
     for (let i = 0; i < 14; i++) {
       ambientBlips.push({
@@ -78,7 +75,7 @@ const BackgroundAnimation = () => {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Render ambient vintage blips
+      // Ambient drafting blips
       for (let b of ambientBlips) {
         if (b.fadeIn) {
           b.alpha += b.speed;
@@ -93,16 +90,13 @@ const BackgroundAnimation = () => {
           }
         }
 
-        ctx.fillStyle = `rgba(194, 109, 56, ${b.alpha * 0.4})`;
+        ctx.fillStyle = `rgba(180, 83, 9, ${b.alpha * 0.35})`;
         ctx.fillRect(b.x + 1, b.y + 1, gridSize - 2, gridSize - 2);
       }
 
-      // 2. Animate and draw interactive cursor boxes
+      // Animated boxes touched by the cursor
       for (let [key, box] of activeBoxes.entries()) {
-        // Elastic scale pop
-        box.scale += (box.targetScale - box.scale) * 0.25;
-
-        // Warm fade out
+        box.scale += (box.targetScale - box.scale) * 0.22;
         box.alpha -= 0.015;
         box.borderAlpha -= 0.02;
 
@@ -116,17 +110,15 @@ const BackgroundAnimation = () => {
         const drawX = box.x + offset;
         const drawY = box.y + offset;
 
-        // Vintage parchment amber fill
-        ctx.fillStyle = `hsla(${box.colorHue}, 65%, 48%, ${box.alpha * 0.42})`;
+        ctx.fillStyle = `hsla(${box.colorHue}, 68%, 45%, ${box.alpha * 0.35})`;
         ctx.fillRect(drawX, drawY, size, size);
 
-        // Technical copper boundary
-        ctx.strokeStyle = `hsla(${box.colorHue}, 75%, 40%, ${box.borderAlpha * 0.85})`;
-        ctx.lineWidth = 1.1;
+        ctx.strokeStyle = `hsla(${box.colorHue}, 75%, 38%, ${box.borderAlpha * 0.85})`;
+        ctx.lineWidth = 1;
         ctx.strokeRect(drawX + 0.5, drawY + 0.5, size - 1, size - 1);
       }
 
-      // 3. Warm drafting flare around cursor
+      // Warm drafting lantern halo around cursor
       if (mouse.x > 0 && mouse.y > 0) {
         const radGrad = ctx.createRadialGradient(
           mouse.x,
@@ -136,9 +128,9 @@ const BackgroundAnimation = () => {
           mouse.y,
           mouse.radius
         );
-        radGrad.addColorStop(0, 'rgba(194, 109, 56, 0.12)');
-        radGrad.addColorStop(0.6, 'rgba(217, 119, 6, 0.04)');
-        radGrad.addColorStop(1, 'rgba(217, 119, 6, 0)');
+        radGrad.addColorStop(0, 'rgba(180, 83, 9, 0.12)');
+        radGrad.addColorStop(0.6, 'rgba(120, 53, 15, 0.03)');
+        radGrad.addColorStop(1, 'rgba(120, 53, 15, 0)');
 
         ctx.fillStyle = radGrad;
         ctx.beginPath();
@@ -160,7 +152,7 @@ const BackgroundAnimation = () => {
   }, []);
 
   return (
-    <div className="blueprint-grid-wrapper vintage-theme">
+    <div className="blueprint-grid-wrapper">
       <div className="blueprint-grid-pattern"></div>
       <canvas ref={canvasRef} className="blueprint-grid-canvas" />
     </div>
