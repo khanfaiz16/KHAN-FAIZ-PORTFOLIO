@@ -1,23 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --bg-page: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-subtle: #f1f5f9;
+  /* Vintage Architectural Typography */
+  --font-sans: 'EB Garamond', Georgia, serif;
+  --font-heading: 'Cinzel', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Vintage Blueprint & Aged Parchment Color System */
+  --bg-page: #f9f6f0;           /* Warm antique parchment */
+  --bg-surface: #fffdfa;        /* Clean drafting paper */
+  --bg-subtle: #f0eae1;         /* Weathered card backings */
   
-  --card-bg: #ffffff;
-  --card-border: #e2e8f0;
-  --border-focus: #2563eb;
+  --card-bg: #fffdfa;
+  --card-border: #dcd3c4;       /* Aged brass/rule lines */
+  --border-focus: #c26d38;
 
-  --accent-primary: #2563eb;
-  --accent-secondary: #4f46e5;
-  --accent-soft: rgba(37, 99, 235, 0.08);
+  --accent-primary: #b45309;     /* Aged warm copper / burnished amber */
+  --accent-secondary: #0f2338;   /* Archival blueprint navy */
+  --accent-soft: rgba(180, 83, 9, 0.09);
 
-  --text-main: #0f172a;
-  --text-body: #1e293b;
-  --text-muted: #64748b;
+  --text-main: #1c1917;         /* Ink-well charcoal */
+  --text-body: #322d28;         /* Sepia-tinted dark body */
+  --text-muted: #786f66;        /* Faded graphite gray */
 
-  --whatsapp-color: #25d366;
+  --whatsapp-color: #166534;
   --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -32,79 +38,24 @@ html {
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-sans);
   background-color: var(--bg-page);
   color: var(--text-body);
-  line-height: 1.65;
+  font-size: 1.05rem;
+  line-height: 1.68;
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Ambient animated background bubbles */
-body::before,
-body::after {
-  content: '';
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(90px);
-  z-index: -1;
-  opacity: 0.55;
-  pointer-events: none;
-  animation: driftAmbient 14s infinite alternate ease-in-out;
+/* Headings */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--text-main);
+  letter-spacing: 0.03em;
 }
 
-body::before {
-  width: 420px;
-  height: 420px;
-  background: #dbeafe;
-  top: -60px;
-  left: -60px;
-}
-
-body::after {
-  width: 460px;
-  height: 460px;
-  background: #ede9fe;
-  bottom: -60px;
-  right: -60px;
-}
-
-@keyframes driftAmbient {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(30px, 35px); }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes floatHero {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-7px); }
-}
-
-@keyframes softGlow {
-  0%, 100% {
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1);
-  }
-  50% {
-    box-shadow: 0 16px 35px rgba(37, 99, 235, 0.18);
-  }
-}
-
-@keyframes pulseRipple {
-  0% { transform: scale(1); opacity: 0.8; }
-  100% { transform: scale(1.5); opacity: 0; }
-}
-
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -112,7 +63,7 @@ body::after {
   background: var(--bg-page);
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #d4c7b5;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -128,37 +79,43 @@ ul {
   list-style: none;
 }
 
-/* Mouse-tracking spot glow inside cards */
-.spotlight-card {
-  position: relative;
-  overflow: hidden;
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.spotlight-card::before {
-  content: '';
-  position: absolute;
-  top: var(--mouse-y, -100px);
-  left: var(--mouse-x, -100px);
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 0;
+@keyframes floatHero {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-.spotlight-card:hover::before {
-  opacity: 1;
+@keyframes softGlow {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(180, 83, 9, 0.08);
+  }
+  50% {
+    box-shadow: 0 14px 32px rgba(180, 83, 9, 0.16);
+  }
 }
 
-/* Blinking typewriter cursor */
+@keyframes pulseRipple {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
 .typewriter-cursor {
   display: inline-block;
   color: var(--accent-primary);
   font-weight: 300;
-  margin-left: 2px;
+  font-family: var(--font-sans);
+  margin-left: 3px;
   animation: blinkCursor 0.9s infinite;
 }
 
@@ -167,18 +124,10 @@ ul {
   50% { opacity: 0; }
 }
 
-/* Nav Active Indicator Pill */
-.nav-links a.active-link {
-  color: var(--accent-primary) !important;
-}
-
-.nav-links a.active-link::after {
-  width: 100% !important;
-}
-
-/* Background Animation Canvas & Grid */
-/* Background Canvas Wrapper */
-.bg-canvas-wrapper {
+/* =========================================================
+   Vintage Architectural Grid (24px Precision)
+   ========================================================= */
+.blueprint-grid-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -187,10 +136,26 @@ ul {
   z-index: -2;
   pointer-events: none;
   overflow: hidden;
-  background-color: #f8fafc;
+  background-color: var(--bg-page);
 }
 
-.bg-canvas {
+/* Fine vintage drafting line grid */
+.blueprint-grid-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(168, 149, 126, 0.28) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(168, 149, 126, 0.28) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(circle at 50% 40%, black 50%, transparent 95%);
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, black 50%, transparent 95%);
+  opacity: 0.9;
+}
+
+.blueprint-grid-canvas {
   position: absolute;
   top: 0;
   left: 0;
@@ -198,96 +163,3 @@ ul {
   height: 100%;
   z-index: 1;
 }
-
-/* Multi-Orb Animated Aurora Effect */
-.aurora-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(110px);
-  pointer-events: none;
-  opacity: 0.55;
-  will-change: transform;
-}
-
-.aura-1 {
-  width: 550px;
-  height: 550px;
-  background: radial-gradient(circle, #bfdbfe 0%, #93c5fd 60%, transparent 100%);
-  top: -150px;
-  left: -100px;
-  animation: floatAura1 18s ease-in-out infinite alternate;
-}
-
-.aura-2 {
-  width: 650px;
-  height: 650px;
-  background: radial-gradient(circle, #e0e7ff 0%, #c7d2fe 60%, transparent 100%);
-  bottom: -150px;
-  right: -100px;
-  animation: floatAura2 20s ease-in-out infinite alternate;
-}
-
-.aura-3 {
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, #ddd6fe 0%, transparent 70%);
-  top: 40%;
-  left: 30%;
-  opacity: 0.4;
-  animation: floatAura3 16s ease-in-out infinite alternate;
-}
-
-@keyframes floatAura1 {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(60px, 80px) scale(1.1); }
-  100% { transform: translate(-30px, 50px) scale(0.95); }
-}
-
-@keyframes floatAura2 {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-80px, -60px) scale(1.15); }
-  100% { transform: translate(40px, -40px) scale(0.9); }
-}
-
-@keyframes floatAura3 {
-  0% { transform: translate(0, 0) scale(0.9); }
-  100% { transform: translate(-50px, 60px) scale(1.15); }
-}
-
-/* Modern Isometric Grid Matrix */
-.bg-isometric-dots {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(rgba(100, 116, 139, 0.16) 1.2px, transparent 1.2px);
-  background-size: 28px 28px;
-  mask-image: radial-gradient(ellipse at 50% 50%, black 50%, transparent 95%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 50%, transparent 95%);
-  opacity: 0.75;
-  z-index: 0;
-}
-
-.bg-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Subtle blueprint dot-grid overlay */
-.bg-grid-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
-  opacity: 0.6;
-}
-
