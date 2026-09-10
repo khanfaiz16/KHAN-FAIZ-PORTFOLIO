@@ -6,22 +6,22 @@
   --font-heading: 'Cinzel', serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Antique Drafting & Aged Parchment Palette */
-  --bg-page: #f9f6f0;           /* Warm antique parchment */
-  --bg-surface: #fffdfa;        /* Clean drafting paper */
-  --bg-subtle: #efe7da;         /* Weathered card backings */
+  /* Antique Drafting Palette */
+  --bg-page: #f9f6f0;
+  --bg-surface: #fffdfa;
+  --bg-subtle: #efe7da;
   
   --card-bg: #fffdfa;
-  --card-border: #d6cbba;       /* Aged brass/pencil guide rules */
+  --card-border: #d6cbba;
   --border-focus: #b45309;
 
-  --accent-primary: #b45309;     /* Aged warm copper / burnished amber */
-  --accent-secondary: #0f2338;   /* Archival blueprint navy */
+  --accent-primary: #b45309;
+  --accent-secondary: #0f2338;
   --accent-soft: rgba(180, 83, 9, 0.08);
 
-  --text-main: #1c1917;         /* Ink-well charcoal */
-  --text-body: #332d26;         /* Sepia-tinted dark body */
-  --text-muted: #786f66;        /* Faded graphite gray */
+  --text-main: #1c1917;
+  --text-body: #332d26;
+  --text-muted: #786f66;
 
   --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -47,14 +47,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Headings */
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   color: var(--text-main);
   letter-spacing: 0.03em;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -78,7 +76,6 @@ ul {
   list-style: none;
 }
 
-/* Keyframe Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -104,7 +101,6 @@ ul {
   }
 }
 
-/* Blinking typewriter cursor */
 .typewriter-cursor {
   display: inline-block;
   color: var(--accent-primary);
@@ -119,7 +115,6 @@ ul {
   50% { opacity: 0; }
 }
 
-/* Spotlight hover glow for cards */
 .spotlight-card {
   position: relative;
   overflow: hidden;
@@ -144,7 +139,6 @@ ul {
   opacity: 1;
 }
 
-/* Blueprint Grid Background */
 .blueprint-grid-wrapper {
   position: fixed;
   top: 0;
@@ -167,8 +161,8 @@ ul {
     linear-gradient(to right, rgba(168, 149, 126, 0.28) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(168, 149, 126, 0.28) 1px, transparent 1px);
   background-size: 24px 24px;
-  mask-image: radial-gradient(circle at 50% 40%, black 50%, transparent 95%);
-  -webkit-mask-image: radial-gradient(circle at 50% 40%, black 50%, transparent 95%);
+  mask-image: radial-gradient(circle at 50% 40%, #000 50%, transparent 95%);
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 50%, transparent 95%);
   opacity: 0.9;
 }
 
