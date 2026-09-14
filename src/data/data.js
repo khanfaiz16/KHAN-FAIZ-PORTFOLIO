@@ -71,3 +71,18 @@ export const projectsData = [
     repoLink: 'https://github.com/khanfaiz16/E-COMMERCE-FULL-STACK'
   }
 ];
+
+export const educationData = [
+  {
+    period: '2025 — 2027',
+    degree: 'Master of Computer Applications (MCA)',
+    institution: 'Viva Institute Of Technology, Mumbai University',
+    description: 'Specializing in distributed computing, enterprise application patterns, cloud computing, and advanced data structures.'
+  },
+  {
+    period: '2022 — 2025',
+    degree: 'Bachelor of Science (Information Technology)',
+    institution: 'Mahendra Laxman Mhatre Vyavsayik Vidyalaya, Mumbai University',
+    description: 'Comprehensive study of object-oriented concepts, relational database systems, algorithms, operating systems, and web stacks.'
+  }
+];
