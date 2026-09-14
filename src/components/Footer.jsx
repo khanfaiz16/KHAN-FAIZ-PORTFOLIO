@@ -1,23 +1,27 @@
 import React from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import { personalData } from '../data/data';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-socials">
-          <a href="https://www.linkedin.com/in/mohd-faiz-khan-085555319" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            <FaLinkedin />
-          </a>
-          <a href="https://github.com/khanfaiz16" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <a href={personalData.githubUrl} target="_blank" rel="noreferrer" aria-label="GitHub">
             <FaGithub />
           </a>
-          <a href="mailto:khanfaiztech1609@gmail.com" aria-label="Email">
+          <a href={personalData.whatsappUrl} target="_blank" rel="noreferrer" aria-label="WhatsApp">
+            <FaWhatsapp />
+          </a>
+          <a href={`mailto:${personalData.email}`} aria-label="Email">
             <FaEnvelope />
           </a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <FaLinkedin />
+          </a>
         </div>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-          Designed & Engineered with React by <strong style={{ color: 'var(--text-main)' }}>Khan Faiz</strong>.
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+          © {new Date().getFullYear()} {personalData.name}. All Rights Reserved. Crafted with Vintage Engineering Standards.
         </p>
       </div>
     </footer>
