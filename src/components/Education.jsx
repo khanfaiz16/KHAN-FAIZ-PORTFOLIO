@@ -16,7 +16,8 @@ const Education = () => {
         <div className="timeline-container">
           {educationData.map((edu, idx) => (
             <FadeInWhenVisible key={idx} delay={idx * 0.15}>
-              <div className="timeline-node">
+              {/* Added explicit bottom margin wrapper to guarantee the gap */}
+              <div className="timeline-node" style={{ marginBottom: '5rem' }}>
                 <span className="timeline-glow-marker"></span>
                 <div className="timeline-card spotlight-card">
                   <span className="timeline-badge">{edu.period}</span>

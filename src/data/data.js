@@ -6,7 +6,6 @@ export const personalData = {
   email: "khanfaiztech1609.com",
   phone: "+91 73855 40220",
   whatsappUrl: "https://wa.me/917385540220",
-  githubUrl: "https://github.com/khanfaiz16",
   availability: "Currently Open"
 };
 
@@ -34,9 +33,8 @@ export const projectsData = [
       'Integrated a native Web Audio API synthesizer for custom tactile UI feedback and interactive technology filter tags.',
       'Configured automated build pipelines and SPA routing rewrite rules for seamless zero-downtime deployment on Vercel.'
     ],
-    stack: ['React.js', 'Vite', 'Spring Boot', 'MySQL', 'Web Audio API', 'Vercel'],
-    liveLink: 'https://devcraft-solutions-studio.vercel.app/',
-    repoLink: 'https://github.com/khanfaiz16/DEVCRAFT-SOLUTIONS-STUDIO'
+    stack: ['React.js', 'Vite', 'MySQL', 'Vercel'],
+    liveLink: 'https://devcraft-solutions-studio.vercel.app/'
   },
   {
     title: 'Top Cool Service – Doorstep Appliance Repair Platform',
