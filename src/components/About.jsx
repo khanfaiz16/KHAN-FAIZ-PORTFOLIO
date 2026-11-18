@@ -1,14 +1,10 @@
 import React from 'react';
-import { FaBolt, FaLightbulb, FaClock, FaUsers } from 'react-icons/fa';
+import { FaComments, FaClipboardCheck, FaChalkboardTeacher, FaPuzzlePiece, FaRocket } from 'react-icons/fa';
+import { strengths } from '../data/data';
+
+const icons = [FaComments, FaClipboardCheck, FaChalkboardTeacher, FaPuzzlePiece, FaRocket];
 
 const About = () => {
-  const strengths = [
-    { icon: <FaBolt />, title: 'Quick Learner', desc: 'Rapid technical absorption and tooling mastery' },
-    { icon: <FaLightbulb />, title: 'Creative Thinker', desc: 'Robust problem decomposition and clean patterns' },
-    { icon: <FaClock />, title: 'Punctual', desc: 'Commitment to strict delivery pipelines and milestones' },
-    { icon: <FaUsers />, title: 'Team Player', desc: 'Active communicator in agile and cross-functional teams' },
-  ];
-
   return (
     <section id="about" className="section">
       <div className="container">
@@ -19,22 +15,24 @@ const About = () => {
 
         <div className="about-box">
           <p className="about-summary">
-            I am an ambitious Full Stack Java Developer with practical exposure to developing enterprise-grade 
-            applications, RESTful API design, and relational database schema architecture. Pursuing my MCA has 
-            sharpened my analytical capabilities and core computer science fundamentals. I focus on developing clean, 
-            testable, and scalable backend code with Spring Boot while translating requirements into intuitive, fluid React interfaces.
+            I combine deep technical work with customer-facing problem solving. I have built a full hospital ERP,
+            a live commercial platform with CI/CD and technical SEO, and a secure admin portal for a pharmaceutical
+            business. My goal is to design the right solution for a customer's requirements, explain it clearly,
+            and then build it end to end, as a Solution Architect or Pre-Sales engineer.
           </p>
 
           <div className="strengths-grid">
-            {strengths.map((item, index) => (
-              <div key={index} className="strength-card">
-                <div className="strength-icon">{item.icon}</div>
-                <div>
-                  <h4>{item.title}</h4>
-                  <p>{item.desc}</p>
+            {strengths.map((label, i) => {
+              const Icon = icons[i];
+              return (
+                <div key={label} className="strength-card">
+                  <div className="strength-icon"><Icon /></div>
+                  <div>
+                    <h4>{label}</h4>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

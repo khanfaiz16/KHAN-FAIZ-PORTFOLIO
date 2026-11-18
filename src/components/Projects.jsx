@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaCheckCircle, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
-import { FadeInWhenVisible, TiltCard } from './MotionWrapper';
+import { FaCheckCircle, FaExternalLinkAlt, FaGithub, FaImage } from 'react-icons/fa';
+import { FadeInWhenVisible } from './MotionWrapper';
 import { projectsData } from '../data/data';
 
 const Projects = () => {
@@ -10,18 +10,24 @@ const Projects = () => {
         <FadeInWhenVisible>
           <div className="section-header">
             <span className="section-badge">Portfolio Archive</span>
-            <h2 className="section-title">Featured Architectural Builds</h2>
+            <h2 className="section-title">Featured Builds</h2>
           </div>
         </FadeInWhenVisible>
 
         <div className="editorial-projects-grid">
           {projectsData.map((proj, idx) => (
-            <FadeInWhenVisible key={idx} delay={idx * 0.12}>
-              <TiltCard className="editorial-project-card">
-                {/* Top Blueprint Spec Label */}
-                <div className="project-card-meta">
-                  <span className="spec-index">SPEC. 0{idx + 1}</span>
-                  <span className="spec-line-rule"></span>
+            <FadeInWhenVisible key={proj.title} delay={idx * 0.1}>
+              <article className="editorial-project-card spotlight-card">
+                <div className="project-shot">
+                  {proj.screenshot ? (
+                    <img src={proj.screenshot} alt={`${proj.title} screenshot`} loading="lazy" />
+                  ) : (
+                    <div className="project-shot-placeholder" aria-hidden="true">
+                      <FaImage />
+                      <span>Screenshot coming soon</span>
+                    </div>
+                  )}
+                  <span className="spec-index">0{idx + 1}</span>
                 </div>
 
                 <div className="project-main-content">
@@ -31,8 +37,8 @@ const Projects = () => {
                   </div>
 
                   <ul className="bullet-points">
-                    {proj.points.map((pt, pIdx) => (
-                      <li key={pIdx}>
+                    {proj.points.map((pt) => (
+                      <li key={pt}>
                         <FaCheckCircle className="bullet-check" />
                         <span>{pt}</span>
                       </li>
@@ -42,35 +48,25 @@ const Projects = () => {
 
                 <div className="project-footer">
                   <div className="skill-chips">
-                    {proj.stack.map((item, tIdx) => (
-                      <span key={tIdx} className="chip">{item}</span>
+                    {proj.stack.map((item) => (
+                      <span key={item} className="chip">{item}</span>
                     ))}
                   </div>
 
                   <div className="project-action-wrapper">
                     {proj.liveLink && (
-                      <a
-                        href={proj.liveLink}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="btn-project-link live-btn"
-                      >
+                      <a href={proj.liveLink} target="_blank" rel="noreferrer" className="btn-project-link live-btn">
                         <span>Live Project</span> <FaExternalLinkAlt />
                       </a>
                     )}
                     {proj.repoLink && (
-                      <a
-                        href={proj.repoLink}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="btn-project-link repo-btn"
-                      >
+                      <a href={proj.repoLink} target="_blank" rel="noreferrer" className="btn-project-link repo-btn">
                         <span>Source Code</span> <FaGithub />
                       </a>
                     )}
                   </div>
                 </div>
-              </TiltCard>
+              </article>
             </FadeInWhenVisible>
           ))}
         </div>

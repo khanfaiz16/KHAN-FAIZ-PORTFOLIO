@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fa';
 import { FiSend } from 'react-icons/fi';
 import { FadeInWhenVisible } from './MotionWrapper';
+import { personalData, contactTopics } from '../data/data';
 
 const Contact = () => {
   const [copiedKey, setCopiedKey] = useState(null);
@@ -23,35 +24,30 @@ const Contact = () => {
     message: ''
   });
   const [status, setStatus] = useState({ state: '', message: '' });
-  const FORMSPREE_FORM_ID = "maeypgvn";
+  const FORMSPREE_FORM_ID = 'maeypgvn';
 
-  const topics = [
-    'Full-Time Role',
-    'Spring Boot Backend',
-    'React Full-Stack',
-    'Consulting / Freelance'
-  ];
+  const topics = contactTopics;
 
   const contactInfo = [
     {
       id: 'email',
       icon: <FaEnvelope />,
       title: 'Email Address',
-      value: 'khanfaiztech1609@gmail.com',
+      value: personalData.email,
       actionType: 'copy'
     },
     {
       id: 'phone',
       icon: <FaPhoneAlt />,
       title: 'Direct Line',
-      value: '+91 73855 40220',
+      value: personalData.phone,
       actionType: 'copy'
     },
     {
       id: 'location',
       icon: <FaMapMarkerAlt />,
       title: 'Location',
-      value: 'All Over India',
+      value: personalData.location,
       actionType: 'none'
     }
   ];
@@ -104,7 +100,7 @@ const Contact = () => {
       if (response.ok) {
         setStatus({ 
           state: 'success', 
-          message: 'Message dispatched successfully! I will get back to you shortly.' 
+          message: 'Message sent successfully! I will get back to you shortly.' 
         });
         setFormData({
           name: '',
@@ -180,7 +176,7 @@ const Contact = () => {
                   <p>Send a direct message via WhatsApp for swift turnarounds.</p>
                 </div>
                 <a
-                  href="https://wa.me/917385540220"
+                  href={personalData.whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-wa-launch"
@@ -219,7 +215,7 @@ const Contact = () => {
                     id="name"
                     type="text"
                     name="name"
-                    placeholder="e.g. Alex Rivera"
+                    placeholder="Your full name"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -246,7 +242,7 @@ const Contact = () => {
                       id="phone"
                       type="tel"
                       name="phone"
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 00000 00000"
                       value={formData.phone}
                       onChange={handleChange}
                       required
