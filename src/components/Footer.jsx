@@ -12,6 +12,9 @@ const Footer = () => {
           <a href={personalData.whatsappUrl} target="_blank" rel="noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
           <a href={`mailto:${personalData.email}`} aria-label="Email"><FaEnvelope /></a>
         </div>
+        <a href={pentrixaData.website} target="_blank" rel="noreferrer" className="footer-logo-tile" aria-label="Pentrixa Tech website">
+          <img src={pentrixaData.logo} alt="Pentrixa Tech logo" width="180" height="92" loading="lazy" />
+        </a>
         <p className="footer-note">
           © {new Date().getFullYear()} {personalData.name}. All rights reserved. Founder of{' '}
           <a href={pentrixaData.website} target="_blank" rel="noreferrer">{pentrixaData.name}</a>.

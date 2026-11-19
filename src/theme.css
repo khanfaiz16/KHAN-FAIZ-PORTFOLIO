@@ -970,3 +970,104 @@ h1, h2, h3, h4 {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* =========================================================
+   v3 · Pentrixa logo on its own white background + glass everywhere
+   ========================================================= */
+
+/* Pentrixa band: light glass that matches the logo's white background */
+.pentrixa-card {
+  color: var(--ink);
+  background:
+    radial-gradient(520px 320px at 0% 0%, rgba(242,205,116,.22), transparent 70%),
+    radial-gradient(480px 300px at 100% 100%, rgba(242,187,133,.2), transparent 70%),
+    rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: var(--blur);
+  backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--glass-shadow);
+}
+.pentrixa-logo-slot {
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 26px;
+  padding: clamp(14px, 3vw, 28px);
+  box-shadow: 0 24px 50px -16px rgba(91, 74, 58, 0.3), inset 0 1px 0 #fff;
+}
+.pentrixa-logo-slot img {
+  width: 100%;
+  height: auto;
+  filter: none;
+  object-fit: contain;
+}
+.pentrixa-role { color: var(--brown); font-weight: 600; }
+/* the logo already carries the tagline, so the text is kept for screen readers only */
+.pentrixa-tagline {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.pentrixa-brand { position: relative; }
+.pentrixa-summary { color: var(--text); }
+.pentrixa-services li {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--glass-edge);
+  box-shadow: inset 0 1px 0 #fff;
+}
+.pentrixa-visit { background: var(--ink); color: var(--gold); box-shadow: 0 14px 30px rgba(14,20,32,.25); }
+
+/* Footer logo tile */
+.footer-logo-tile {
+  display: inline-grid;
+  place-items: center;
+  margin: 0 auto 18px;
+  padding: 12px 18px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--glass-shadow);
+  transition: transform .35s var(--ease);
+}
+.footer-logo-tile:hover { transform: translateY(-3px); }
+.footer-logo-tile img { width: 150px; height: auto; }
+
+/* Glass on the small elements too */
+.chip,
+.topic-chip,
+.section-badge,
+.hero-status-pill,
+.pill-menu-link.active,
+.center-pill-menu,
+.btn-copy-chip,
+.btn-project-link,
+.footer-socials a,
+.wa-icon-cluster,
+.contact-icon-bubble,
+.strength-icon,
+.skill-icon-bubble,
+.spec-index,
+.timeline-badge,
+.live-btn,
+.repo-btn,
+.status-alert {
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+}
+.chip,
+.topic-chip,
+.repo-btn,
+.btn-copy-chip,
+.footer-socials a {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--glass-edge);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 6px 16px -6px rgba(91,74,58,.2);
+}
+.project-shot-placeholder { backdrop-filter: blur(6px); }
+.project-shot { background: rgba(255,255,255,.35); }
+.form-group input,
+.form-group textarea { background: rgba(255,255,255,.55); }
+/* lift the logo's near-white background to pure white so it blends into the tile */
+.pentrixa-logo-slot img { filter: brightness(1.06) contrast(1.02); }
